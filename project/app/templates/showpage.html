@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      thead{
+        background-color: rgb(30, 208, 179);
+        height: 80px;
+      }
+      td{
+        background-color: rgb(172, 231, 63);
+        color: rgb(232, 25, 87);
+      }
+      #btndiv{
+    padding:20px;
+    width:180px;
+    position:relative;
+    top:0px;
+    font-size:18px;
+    background-color: rgb(0, 187, 255);
+    border:none;
+    cursor:pointer;
+    transition:all 1s;
+    color:white;
+
+}
+#btndiv:hover{
+    background:transparent;
+    border:2px solid   rgb(0, 187, 255);
+    color:white;
+}
+    </style>
+</head>
+<body bgcolor="lightgrey">
+  <center>
+  <h1>Show All Queries:</h1>
+    <table border='2' style="height: 100px;width: 1200px;">
+      <thead>
+          <tr>
+            <th>Id</th>
+            <th>Studentname</th>
+            <th>Email</th>
+            <th>Contact</th>
+            <th>Enquiry</th>
+            <th>Edit</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+    {% if key1 %}
+    <tbody>
+        {% for i in key1 %}
+          <tr>
+            <td>{{i.id}}</td>
+            <td>{{i.Studentname}}</td>
+            <td>{{i.Email}}</td>
+            <td>{{i.Contact}}</td>
+            <td>{{i.Enquiry}}</td>
+            <td>
+              <center>
+              <form action="{% url 'editpage' pk=i.id %}" method="post">
+                {% csrf_token %}
+                <input type="submit" value="Edit" id="btndiv">
+              </form>
+            </center>
+            </td>
+            <td>
+              <center>
+              <form action="{% url 'delete' pk=i.id %}" method="post" name="Deleteform">
+                {% csrf_token %}
+                <input type="submit" value="Delete" id="btndiv">
+              </form>
+            </center>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+    {% endif %}
+    </table>
+    <br>
+    <form action="{% url 'home' %}" method="post">
+        {% csrf_token %}
+        <input type="submit" value="logout"  id="btndiv">
+    </form>
+  </center>
+</body>
+</html>

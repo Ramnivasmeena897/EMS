@@ -1,0 +1,144 @@
+{% load static %}
+<html>
+
+<head>
+    <title>Home Page</title>
+</head>
+<style>
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: green;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color:red;
+}
+img{
+    height:60%;
+    width:100%;
+
+   background-size:auto;
+
+}
+
+
+footer {
+    text-align: center;
+    padding: 3px;
+    background-color: DarkSalmon;
+    color: white;
+  }
+
+  #img1{
+    background-image:url("{% static 'app/images/lucky.jpeg' %}");
+    height:400px;
+    background-size:cover;
+    background-repeat:no-repeat;
+    
+  }
+  .pictures{
+    display: flex;
+    gap: 10px;
+  }
+  
+
+  
+  #two{
+   
+    height: 500px;
+    width: 50%;
+  }
+ #three{
+    
+    height: 500px;
+    width: 50%;
+ }
+    
+
+  
+
+#btndiv{
+    padding:20px;
+    width:180px;
+    position:relative;
+    top:330px;
+    left:650px;
+    font-size:18px;
+    background-color:green;
+    border:none;
+    cursor:pointer;
+    transition:all 1s;
+    color:white;
+
+}
+#btndiv:hover{
+    background:transparent;
+    border:2px solid green;
+    color:white;
+}
+u{
+  font-size:50px;
+  font-weight:900;
+}
+
+</style>
+
+<body bgcolor="lightblue">
+<ul>
+  <li><a href="#home">Home</a></li>
+  <li><a href="{% url 'admin1' %}">Admin</a></li>
+  <li><a href="{% url 'user1' %}">User</a></li>
+  <li><a href="#">Contact Us</a></li>
+</ul>
+<div id="img1">
+    <a href="{% url 'enquiry' %}"> <button id="btndiv">Enquiry</button> </a>
+</div>
+        <center>
+           
+            
+            <div class="container">
+                <h1><u>Enquiry Management System (EMS)....!!!!!!</u></h1>
+              
+
+            </div>
+            <div class="pictures">
+           
+              <div id="two">
+                <img src="/static/app/images/r2.png">
+
+              </div>
+              <div id="three">
+                <img src="/static/app/images/r3.jpg">
+
+              </div>
+                 
+            </div>
+            
+            
+           
+            
+
+        </center>
+    </div>
+    <footer>
+        <p>Author: Hege Refsnes<br>
+        <a href="ramnivasmeena.com">Ramnivas Meena</a></p>
+      </footer>
+</body>
+
+</html>
